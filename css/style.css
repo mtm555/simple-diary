@@ -4,45 +4,98 @@ body {
   text-align: left;
   font-size: 32px;
   width: 100%;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* 追加 */
 }
-header {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  text-align: center;
-}
-h1 {
+
+input,select,textarea{
+  font-family: inherit;
   font-size: 100%;
-  color: #E1B80D;
 }
-main {
-  width: 100%;
-  display: block;
-  border-bottom: 1px solid #ccc;
-  position: relative;
+
+a{
+  color:#ebebeb;
 }
-footer {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
+
+.headerimg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   text-align: center;
+  background-image:url(../img/diary.jpg);
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+}
+
+.navigation-container{
+  position: fixed;
+  width: 100%;
+  top:0;
+  margin-top: 0;
+  margin-bottom: 0px;
+  font-size: 3.5vw;
+}
+
+
+.headerimg h1{
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 7.5vw;
+  letter-spacing: 0.1em;
+  margin-left: 0.1em;
+  color: #b7a644;
+
+}
+.headerimg p1{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 3.5vw;
+  color: #534d30;
+}
+
+
+.diaryimg{
+text-align: center;
+background-image:url(../img/cafe.jpg);
+background-position: center;
+background-size: cover;
+margin: 0;
+height: 100vh;
+}
+
+.savedimg{
+  text-align: center;
+  background-image:url(../img/library.jfif);
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+  }
+
+.diarycontents{
+display: inline-block;
+padding: 5%;
 }
 
 .yeardata {
-  margin: 10px 3%;
-  width: 96%;
-  font-size: 60%;
+  margin: 10px, 3%;
+  width: 100%;
+  font-size: 3.5vm;
   color:#867666
   
 }
 
-select, option{
-  width:6%;
+select{
+  width:10%;
   background:#e9e1d9;
   border:#867666 2px inset;
   cursor: url(/img/pen.png),pointer;
   position: relative;
   border-radius: 2px;
   border-radius: 6px;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 p {
@@ -50,7 +103,10 @@ p {
   text-align: center;
   border-bottom: 1px solid #fff;
   height: 200px;
+  width:100%;
+
 }
+
 ul {
   padding: 0;
   border-top: 1px solid #000000;
@@ -61,30 +117,32 @@ ul {
   margin: 0 3%;
   text-align: center;
 }
+
 li {
   list-style-type: none;
   
   display: table-cell; /* 定義 */
   cursor: pointer;
-  color: #E1B80D;
+  color: #ebebeb;
   border:#867666 2px inset;
   border-radius: 2px;
   border-radius: 6px;
-  background-color:#fff;
+  background-color:rgba(128,128,128,0.7);
 }
 li:hover {
-  background: #E1B80D;
+  background: rgb(212, 209, 209);
   color: #fff;
 }
+
 textarea {
   margin: 10px 3%;
   width: 95%;
-  height: 100px;
+  height: 400px;
   font-size: 80%;
   border:#867666 2px inset;
   border-radius: 2px;
   border-radius: 6px;
-  background-color:#e9e1d9;
+  background-color: rgba(206, 197, 197, 0.7);
 }
 #key {
   margin: 0 3%;
@@ -100,13 +158,13 @@ table {
 }
 th {
   width: 60px;
-  font-size: 15px;
+  font-size: 2vw;
   text-align:center;
   background-color: #D5C3AA;
   border-bottom: 1px solid #867666;
 }
 td {
-  font-size: 16px;
+  font-size: 2vw;
   background-color: rgb(241, 239, 239);
   border-bottom: 1px solid #867666;
 }
@@ -115,4 +173,46 @@ input {
   width: 95%;
   height: 40px;
   font-size: 80%;
+}
+
+footer {
+  background-color: #fff;
+  
+  text-align: center;
+}
+
+#output{
+  font-size: 30%;
+  margin: 3%;
+  width: 95%;
+  height: 500px;
+  overflow: scroll;
+  border: #867666 2px inset;
+  border-radius: 10px;
+  background-color: rgba(206, 197, 197, 0.95);
+
+}
+
+.savedcontents{
+  display: inline-block;
+  padding: 7%;
+  width:85%;
+  }
+  
+
+button{
+  font-family: inherit;
+  cursor: pointer;
+  color: #ebebeb;
+  background-color:rgba(128,128,128,0.7);
+  width:10%;
+  border:#867666 2px inset;
+  position: relative;
+  border-radius: 2px;
+  border-radius: 6px;
+  font-size: 2rem;
+}
+button:hover {
+  background: rgb(212, 209, 209);
+  color: #fff;
 }
