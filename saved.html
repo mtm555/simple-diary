@@ -31,7 +31,7 @@
 
             <div id="output"></div>
 
-            <button id="delete">delete</button>
+            <!-- <button id="delete">delete</button> -->
           
                   
         </div>
@@ -57,11 +57,12 @@
     // https://firebase.google.com/docs/web/setup#available-libraries
     import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved }
         from "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.6.0/firebase-database.min.js";
-
+  
     // Your web app's Firebase configuration
     const firebaseConfig = {
-      apiKey: "AIzaSyBHMTRh0PajdZZ1DHQuqbHxKEM-eEPSYwg",
+    //   apiKey: ,
       authDomain: "gs-app-6e509.firebaseapp.com",
+      databaseURL: "https://gs-app-6e509-default-rtdb.firebaseio.com",
       projectId: "gs-app-6e509",
       storageBucket: "gs-app-6e509.appspot.com",
       messagingSenderId: "1089588780630",
@@ -70,117 +71,40 @@
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-
+    
     // 自分で設定
-    const db =getDatabase(app);
+    const db = getDatabase(app);
     const dbRef = ref(db,"chat");
-
-
-    // // ここからイベント書く
-    // $("#send").on("click",function(){
-    //     const msg={
-    //         uname:$("#uname").val(),
-    //         text: $("text").val()
-    //     };
-    //     const newPostRef=push(dbRef);
-    //     set(newPostRef, msg);
-    // });
-
   
     // 受信処理
     onChildAdded(dbRef,function(data){
         const msg = data.val();
-        console.log(msg);
         const key = data.key;
-        let h ="<p>";
+        let h ="<div class='saveditem'>";
             h +=msg.date;
-            h +="<br>";
+            h +="-";  
             h +=msg.month;
-            h +="<br>";
+            h +="-"; 
             h +=msg.year;
             h +="<br>"
-            h +=msg.uname;
-            h +="<br>"
             h +=msg.text;
-            h +="</p>";
+            h +="<br>"
+            h += "<button class='remove' id='";
+            h += key;
+            h += "'>delete</button>";
+            h +="</div>";
         $("#output").append(h);
     });
     
-    $("#delete").on("click",function(){
-       $("p").remove();
+
+    //削除 
+    $(document).on("click",".remove",function(){
+        remove(ref(db,"chat/"+$(this).attr("id")));
+        $(this).parent().remove();
     });
-
-    // $("#delete").on("click",function(){
-    //         const msg={
-    //             uname:$("#uname").val(),
-    //             text: $("text").val()
-    //         };
-    //         const newPostRef=push(dbRef);
-    //         set(newPostRef, msg);
-    // });
-
-
+ 
 </script>
 
-            <!-- <script>
-
-            //年:2021~2030
-            let yearHTML = '';
-            for(let i=2021; i<2031; i++){
-                yearHTML+='<option value="'+ i +'">'+i+'</option>';
-            }
-            $("#year").html(yearHTML)
-
-            //月:1~12
-            let monthHTML = '';
-            for(let i=1; i<13; i++){
-                monthHTML+='<option value="'+i+'">'+i+'</option>';
-            }
-            $("#month").html(monthHTML)
-
-            //日:1~31
-            let dayHTML ='';
-            for(let i=1; i<32; i++){
-                dayHTML+='<option value="'+i+'">'+i+'</option>'
-            }
-            $("#date").html(dayHTML)
-
-            //1.Save クリックイベント
-            $("#save").on("click",function(){
-                const year=$("#year").val();
-                const month=$("#month").val();
-                const date=$("#date").val();
-                const value=$("#memo").val();
-                localStorage.setItem(year,month,date,value);
-                // 一覧表示に追加
-                const html = '<tr><th>'+date+'</th><th>'+month+'</th><th>'+year+'</th><td>'+value+'</td></tr>';
-                $("#list").append(html);
-            
-            });
-
-            //2.clear クリックイベント
-
-            $("#clear").on("click",function (){
-                localStorage.clear();
-                $("#list").empty();
-            });
-
-
-            //3.ページ読み込み：保存データ取得表示
-
-            for(let i=0;i<localStorage.length;i++){
-                const year=localStorage.year(i);
-                const month=localStorage.month(i);
-                const date=localStorage.date(i);
-                const value=localStorage.getItem(year,month,date);
-
-                // 一覧表示に追加
-                const html = '<tr><th>'+year+'</th><th>'+month+'</th><th>'+date+'</th><td>'+value+'</td></tr>';
-                $("#list").append(html); 
-            }
-
-
-            </script> -->
 <footer><small></small></footer>
 </body>
 </html>

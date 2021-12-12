@@ -70,9 +70,8 @@ height: 100vh;
   background-image:url(../img/library.jfif);
   background-position: center;
   background-size: cover;
-  margin: 0;
   height: 100vh;
-  }
+}
 
 .diarycontents{
 display: inline-block;
@@ -98,11 +97,11 @@ select{
   font-size: 2rem;
 }
 
-p {
+.saveditem {
   font-size: 200%;
   text-align: center;
   border-bottom: 1px solid #fff;
-  height: 200px;
+  height: auto;
   width:100%;
 
 }
@@ -137,7 +136,7 @@ li:hover {
 textarea {
   margin: 10px 3%;
   width: 95%;
-  height: 400px;
+  height: 60vh;
   font-size: 80%;
   border:#867666 2px inset;
   border-radius: 2px;
@@ -151,11 +150,7 @@ textarea {
   background-color: #e1efff;
   box-shadow: 3px 3px 3px 3px #555;
 }
-table {
-  margin: 20px 3%;
-  border: 1px solid #867666;
-  width: 96%;
-}
+
 th {
   width: 60px;
   font-size: 2vw;
@@ -182,21 +177,23 @@ footer {
 }
 
 #output{
-  font-size: 30%;
+  font-size: 40%;
   margin: 3%;
   width: 95%;
-  height: 500px;
+  height: 70vh;
   overflow: scroll;
   border: #867666 2px inset;
   border-radius: 10px;
   background-color: rgba(206, 197, 197, 0.95);
-
+  white-space: pre-wrap;
+   
 }
 
 .savedcontents{
   display: inline-block;
-  padding: 7%;
+  padding: 60px;
   width:85%;
+  margin: 0%;
   }
   
 
@@ -210,8 +207,13 @@ button{
   position: relative;
   border-radius: 2px;
   border-radius: 6px;
+  font-size: 1rem;
+}
+
+#send{
   font-size: 2rem;
 }
+
 button:hover {
   background: rgb(212, 209, 209);
   color: #fff;
